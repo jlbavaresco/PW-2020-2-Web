@@ -3,6 +3,7 @@ package br.edu.ifsul.dao;
 import br.edu.ifsul.conversores.ConverterOrdem;
 import br.edu.ifsul.modelo.Time;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.Stateful;
 
 /**
@@ -20,6 +21,7 @@ public class TimeDAO<TIPO>  extends DAOGenerico<Time> implements Serializable {
         // definir as ordens possíveis
         listaOrdem.add(new Ordem("id", "ID", "="));
         listaOrdem.add(new Ordem("nome", "Nome", "like"));
+        listaOrdem.add(new Ordem("dataFundacao", "Data Fundação", "="));
         listaOrdem.add(new Ordem("cidade.nome", "Cidade", "like"));
         // difinir a ordem inicial
         ordemAtual = listaOrdem.get(1);
@@ -34,5 +36,5 @@ public class TimeDAO<TIPO>  extends DAOGenerico<Time> implements Serializable {
         obj.getJogadores().size();
         return obj;
     }    
-
+       
 }
