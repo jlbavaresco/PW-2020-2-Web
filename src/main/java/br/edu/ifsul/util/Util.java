@@ -19,6 +19,8 @@ public class Util {
         if (retorno.contains("viola restrição de chave estrangeira")){
             retorno = "Registro não pode ser removido por possuir referências  " + 
                     "em outras partes do sistema";
+        } else if (retorno.contains("duplicate key value violates unique constraint")){
+            retorno = "Nome de usário já existe no banco de dados!";
         }
         return retorno;
     }
