@@ -35,6 +35,11 @@ public class TimeDAO<TIPO>  extends DAOGenerico<Time> implements Serializable {
         // uso para evitar o erro de lazy inicialization exception
         obj.getJogadores().size();
         return obj;
+    }   
+    
+    public List<Time> getListaObjetosCompleta(){
+        String jpql = "select distinct t from Time t join fetch t.jogadores order by t.id";
+        return em.createQuery(jpql).getResultList();
     }    
        
 }
