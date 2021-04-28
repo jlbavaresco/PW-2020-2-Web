@@ -4,6 +4,7 @@ import br.edu.ifsul.conversores.ConverterOrdem;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -115,6 +116,7 @@ public class DAOGenerico<TIPO> implements Serializable {
         em.merge(obj);
     }
 
+    @RolesAllowed("ADMINISTRADOR")
     public void remove(TIPO obj) throws Exception {
         obj = em.merge(obj);
         em.remove(obj);
